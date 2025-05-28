@@ -10,29 +10,6 @@ Este projeto demonstra uma função AWS Lambda com:
 
 ---
 
-## 🔐 Permissões necessárias (IAM)
-Para que a função Lambda consiga listar os buckets do S3, a role associada a ela precisa da seguinte permissão:
-```json
-{
-  "Effect": "Allow",
-  "Action": "s3:ListAllMyBuckets",
-  "Resource": "*"
-}
-```
-
----
-
-## 📝 Logging Configuration no AWS Lambda
-Para que os logs sejam estruturados corretamente como JSON, acesse sua função no console AWS Lambda e configure:
-
-Monitoring and operations tools > Logging configuration
-
-Em Log content: Selecione "JSON" como formato de log
-
-🔍 Isso é essencial para que os logs fiquem organizados e sejam reconhecidos por ferramentas como CloudWatch Logs Insights e observabilidade via X-Ray.
-
----
-
 ## 📦 Sobre o AWS Lambda Powertools
 
 Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertools.aws.dev/lambda/python/latest/core/logger/) — uma biblioteca da AWS que fornece utilitários prontos para funções Lambda em produção.
@@ -45,8 +22,32 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
 
 ---
 
-## Estrutura do Projeto
-```tree
+## 📝 Configuração de Logging no AWS Lambda
+
+Para que os logs sejam estruturados como JSON:
+
+1. Acesse sua função no Console AWS Lambda
+2. Vá em **Monitoring and operations tools** > **Logging configuration**
+3. Em **Log content**, selecione o formato: `JSON`
+
+🔍 Isso garante logs organizados, compatíveis com o CloudWatch Logs Insights e AWS X-Ray.
+
+---
+
+## 🔐 Permissões necessárias (IAM)
+Para que a função Lambda consiga **listar os buckets do S3**, a role associada precisa da seguinte permissão:
+```json
+{
+  "Effect": "Allow",
+  "Action": "s3:ListAllMyBuckets",
+  "Resource": "*"
+}
+```
+
+---
+
+## 📁 Estrutura do Projeto
+```text
 ├── src/
 │ ├── bucket_s3/
 │ │ └── bucket_manager.py
@@ -61,7 +62,7 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
 
 ---
 
-## Exemplo de Log
+## 📋 Exemplo de Log Gerado
 ```json
 {
     "function_name": "example_lambda",
@@ -78,14 +79,14 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
 
 ---
 
-## Requisitos
+## ✅ Requisitos
 - Python 3.8+
 - AWS CLI configurado (opcional)
 - Virtualenv recomendado
 
 ---
 
-## Instalação
+## 🚀 Instalação
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # ou .venv\Scripts\activate no Windows
@@ -93,7 +94,7 @@ pip install -r requirements.txt
 ```
 ---
 
-## Executando os Testes
+## 🧪 Executando os Testes
 ```bash
 pytest tests/
 ```
