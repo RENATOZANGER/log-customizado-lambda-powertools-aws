@@ -22,6 +22,7 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
 ---
 
 ## Estrutura do Projeto
+```tree
 ├── src/
 │ ├── bucket_s3/
 │ │ └── bucket_manager.py
@@ -32,7 +33,7 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
 ├── lambda_handler.py
 ├── requirements.txt
 └── README.md
-
+```
 ---
 
 ## Exemplo de Log
