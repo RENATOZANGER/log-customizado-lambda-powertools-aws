@@ -9,6 +9,30 @@ Este projeto demonstra uma função AWS Lambda com:
 - **Timestamp em horário de Brasília**
 
 ---
+
+## 🔐 Permissões necessárias (IAM)
+Para que a função Lambda consiga listar os buckets do S3, a role associada a ela precisa da seguinte permissão:
+```json
+{
+  "Effect": "Allow",
+  "Action": "s3:ListAllMyBuckets",
+  "Resource": "*"
+}
+```
+
+---
+
+## 📝 Logging Configuration no AWS Lambda
+Para que os logs sejam estruturados corretamente como JSON, acesse sua função no console AWS Lambda e configure:
+
+Monitoring and operations tools > Logging configuration
+
+Em Log content: Selecione "JSON" como formato de log
+
+🔍 Isso é essencial para que os logs fiquem organizados e sejam reconhecidos por ferramentas como CloudWatch Logs Insights e observabilidade via X-Ray.
+
+---
+
 ## 📦 Sobre o AWS Lambda Powertools
 
 Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertools.aws.dev/lambda/python/latest/core/logger/) — uma biblioteca da AWS que fornece utilitários prontos para funções Lambda em produção.
@@ -34,6 +58,7 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
 ├── requirements.txt
 └── README.md
 ```
+
 ---
 
 ## Exemplo de Log
@@ -50,12 +75,14 @@ Este projeto utiliza o [AWS Lambda Powertools for Python](https://docs.powertool
     "message": "Iniciando execução da função Lambda"
 }
 ```
+
 ---
 
 ## Requisitos
 - Python 3.8+
 - AWS CLI configurado (opcional)
 - Virtualenv recomendado
+
 ---
 
 ## Instalação
