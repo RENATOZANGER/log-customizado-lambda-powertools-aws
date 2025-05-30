@@ -2,3 +2,4 @@ pytest
 moto
 boto3
 aws-lambda-powertools
+tzdata
