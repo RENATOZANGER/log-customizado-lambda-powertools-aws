@@ -11,7 +11,7 @@ boto3.set_stream_logger('boto3', level=logging.WARNING)
 logger = Logger(
   service="exemplo_lambda_log",
   log_uncaught_exceptions=True,
-  datefmt="%d-%m-%Y %H:%M:%S.%f"[:-3],
+  datefmt="%d-%m-%Y %H:%M:%S.%F",
   log_record_order=[
     "function_name", "service", "location","timestamp",
     "level", "cold_start", "correlation_id", "message"
